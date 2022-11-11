@@ -1,10 +1,7 @@
-import { LoanDetail } from './../../types/Loan';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { catchError, EMPTY, of } from 'rxjs';
 import { RepaymentService } from 'src/app/services/repayment.service';
 import { Repayment } from 'src/app/types/Repayment';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'moneyme-success',
@@ -36,8 +33,7 @@ export class SuccessComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private repaymentService: RepaymentService,
-    private toastr: ToastrService
+    private repaymentService: RepaymentService
   ) {}
 
   ngOnInit(): void {

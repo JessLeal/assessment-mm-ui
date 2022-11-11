@@ -3,7 +3,7 @@ import { Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss', './node-modules/ngx-toastr/toastr.css'],
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   @Output() newLoadingEvent = new EventEmitter<boolean>();

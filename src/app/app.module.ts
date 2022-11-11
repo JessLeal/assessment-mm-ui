@@ -12,7 +12,6 @@ import { RepaymentsComponent } from './pages/repayments/repayments.component';
 import { AccountFormComponent } from './components/account-form/account-form.component';
 import { SuccessComponent } from './pages/success/success.component';
 import { LoadingComponent } from './components/loading/loading.component';
-import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -31,9 +30,6 @@ import { ToastrModule } from 'ngx-toastr';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot({
-      positionClass: 'toastr-bottom-right',
-    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
