@@ -1,0 +1,158 @@
+<div class="repayments">
+  <moneyme-loading *ngIf="isLoading"></moneyme-loading>
+  <div class="repayments__details">
+    <h2 class="repayments__details__title">Your quote</h2>
+
+    <div class="repayments__details__section">
+      <div class="repayments__details__subsection">
+        <p class="repayments__details__section__title">Your Information</p>
+        <p
+          class="repayments__details__section__edit"
+          *ngIf="!isAccountEdit; else accountSaveOptions"
+          (click)="onAccountEditClick()"
+        >
+          Edit
+        </p>
+
+        <ng-template #accountSaveOptions>
+          <div class="repayments__details__section__options">
+            <p
+              class="repayments__details__section__edit repayments__details__section__close"
+              (click)="onAccountCancel()"
+            >
+              Cancel
+            </p>
+
+            <p
+              class="repayments__details__section__edit repayments__details__section__save"
+              (click)="onAccountSubmit()"
+            >
+              Save
+            </p>
+          </div>
+        </ng-template>
+      </div>
+
+      <ng-container *ngIf="!isAccountEdit; else accountForm">
+        <div class="repayments__details__subsection">
+          <p class="repayments__details__subsection__text">Name</p>
+          <p class="repayments__details__subsection__text">
+            {{ repaymentForm.value.firstName }}
+            {{ repaymentForm.value.lastName }}
+          </p>
+        </div>
+
+        <div class="repayments__details__subsection">
+          <p class="repayments__details__subsection__text">Mobile</p>
+          <p class="repayments__details__subsection__text">
+            {{ repaymentForm.value.mobile }}
+          </p>
+        </div>
+
+        <div class="repayments__details__subsection">
+          <p class="repayments__details__subsection__text">Email</p>
+          <p class="repayments__details__subsection__text">
+            {{ repaymentForm.value.email }}
+          </p>
+        </div>
+      </ng-container>
+
+      <ng-template #accountForm>
+        <moneyme-account-form
+          [parentForm]="repaymentForm"
+          @fadeIn
+        ></moneyme-account-form>
+      </ng-template>
+    </div>
+
+    <div class="repayments__details__section">
+      <div class="repayments__details__subsection">
+        <p class="repayments__details__section__title">Finance details</p>
+        <div>
+          <p
+            class="repayments__details__section__edit"
+            *ngIf="!isLoanEdit; else loanSaveOptions"
+            (click)="onFinanceEditClick()"
+          >
+            Edit
+          </p>
+
+          <ng-template #loanSaveOptions>
+            <div class="repayments__details__section__options">
+              <p
+                class="repayments__details__section__edit repayments__details__section__close"
+                (click)="onFinanceCancel()"
+              >
+                Cancel
+              </p>
+
+              <p
+                class="repayments__details__section__edit repayments__details__section__save"
+                (click)="onFinanceSubmit()"
+              >
+                Save
+              </p>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+
+      <div *ngIf="!isLoanEdit; else loanForm">
+        <div class="repayments__details__finance">
+          <div class="repayments__details__finance__item">
+            <p>Finance amount</p>
+            <p class="repayments__details__finance__value">
+              {{ repaymentForm.value.amount | currency }}
+            </p>
+          </div>
+
+          <div class="repayments__details__finance__subitem">
+            <hr class="repayments__details__finance__subitem__line" />
+            <p class="repayments__details__finance__subitem__text">
+              over {{ repaymentForm.value.term }} month/s
+            </p>
+          </div>
+        </div>
+
+        <div class="repayments__details__finance">
+          <div class="repayments__details__finance__item">
+            <p>Repayments from</p>
+            <p class="repayments__details__finance__value">
+              {{ repaymentForm.value.amountRepayment | currency }}
+            </p>
+          </div>
+
+          <div class="repayments__details__finance__subitem">
+            <hr class="repayments__details__finance__subitem__line" />
+            <p class="repayments__details__finance__subitem__text">monthly</p>
+          </div>
+        </div>
+      </div>
+
+      <ng-template #loanForm>
+        <moneyme-loan-form
+          [parentForm]="repaymentForm"
+          @fadeIn
+        ></moneyme-loan-form>
+      </ng-template>
+    </div>
+
+    <div>
+      <button
+        class="btn-primary repayments__details__button"
+        (click)="onClick()"
+      >
+        Apply Now
+      </button>
+
+      <p class="repayments__details__reminder">
+        Total repayments {{ repaymentForm.value.totalRepayment | currency }},
+        made up of an establishment fee of
+        {{ repaymentForm.value.establishmentFee | currency }}, interest of
+        {{ repaymentForm.value.interest | currency }}. The repayment amount is
+        based on variables selected, is subject to our assessment and
+        suitability, and other important terms and conditions apply.
+      </p>
+    </div>
+  </div>
+</div>

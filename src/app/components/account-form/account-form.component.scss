@@ -1,0 +1,42 @@
+.account-form {
+  &__section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+
+    min-width: 10rem;
+    margin-top: 1rem;
+
+    & input {
+      width: 100%;
+    }
+
+    & select {
+      width: 5rem;
+    }
+  }
+
+  &__input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+  }
+
+  & .select-container {
+    flex-grow: initial;
+  }
+
+  &__input-label {
+    color: var(--accent-color);
+    font-size: 0.75rem;
+  }
+
+  &__date-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 10rem;
+  }
+}

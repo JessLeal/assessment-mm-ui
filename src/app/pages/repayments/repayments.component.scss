@@ -1,0 +1,100 @@
+.repayments {
+  &__details {
+    text-align: center;
+
+    //TODO: Update layout styles
+    max-width: 40rem;
+    padding: 1rem 4rem;
+    margin: auto;
+    background-color: white;
+    border-radius: 4px;
+
+    &__section {
+      margin-bottom: 2rem;
+
+      &__title {
+        font-weight: 500;
+      }
+
+      &__edit {
+        font-size: 1rem;
+        cursor: pointer;
+        color: var(--accent-color);
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      &__options {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      &__close {
+        font-size: 0.75rem;
+        color: red;
+      }
+
+      &__save {
+        font-size: 0.75rem;
+        color: var(--accent-color);
+      }
+    }
+
+    &__subsection {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &__text {
+        font-size: 1rem;
+        padding: 0.5rem 0;
+      }
+    }
+
+    &__finance {
+      padding: 0.5rem 0;
+
+      &__item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.25rem;
+      }
+
+      &__subitem {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+
+        &__line {
+          flex-grow: 1;
+          border-top: dashed 1px var(--text-color);
+        }
+
+        &__text {
+          font-size: 0.9rem;
+        }
+      }
+
+      &__value {
+        font-weight: 500;
+        color: var(--accent-color);
+      }
+    }
+
+    &__button {
+      margin-bottom: 2rem;
+    }
+
+    &__reminder {
+      margin: 0 auto;
+      font-size: 0.75rem;
+      max-width: 22.5rem;
+    }
+  }
+}

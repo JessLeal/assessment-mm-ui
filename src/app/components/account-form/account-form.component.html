@@ -1,0 +1,64 @@
+<div [formGroup]="parentForm" class="account-form">
+  <div class="account-form__section">
+    <div class="account-form__input-container select-container">
+      <label class="account-form__input-label"> Title </label>
+      <select name="title" [formControlName]="'title'">
+        <option
+          *ngFor="let titleItem of titleOptions"
+          [ngValue]="titleItem.value"
+        >
+          {{ titleItem.value }}
+        </option>
+      </select>
+    </div>
+
+    <div class="account-form__input-container">
+      <label class="account-form__input-label"> First name </label>
+      <input
+        type="text"
+        placeholder="Your first name"
+        name="firstName"
+        [formControlName]="'firstName'"
+      />
+    </div>
+
+    <div class="account-form__input-container">
+      <label class="account-form__input-label"> Last name </label>
+      <input
+        type="text"
+        placeholder="Your last name"
+        name="lastName"
+        [formControlName]="'lastName'"
+      />
+    </div>
+  </div>
+
+  <div class="account-form__section">
+    <div class="account-form__date-input-container">
+      <label class="account-form__input-label"> Date of birth </label>
+      <input type="date" name="dateOfBirth" [formControlName]="'dateOfBirth'" />
+    </div>
+  </div>
+
+  <div class="account-form__section">
+    <div class="account-form__input-container">
+      <label class="account-form__input-label"> Email </label>
+      <input
+        type="text"
+        placeholder="Your email"
+        name="email"
+        [formControlName]="'email'"
+      />
+    </div>
+
+    <div class="account-form__input-container">
+      <label class="account-form__input-label"> Mobile number </label>
+      <input
+        type="phone"
+        placeholder="Your mobile number"
+        name="mobile"
+        [formControlName]="'mobile'"
+      />
+    </div>
+  </div>
+</div>

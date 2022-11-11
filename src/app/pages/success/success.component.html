@@ -1,0 +1,100 @@
+<div class="repayments">
+  <moneyme-loading *ngIf="isLoading"></moneyme-loading>
+  <div class="repayments__details">
+    <h1 class="repayments__details__title">Success!</h1>
+    <p class="repayments__details__reminder">
+      You have successfully applied for a loan
+    </p>
+
+    <div class="repayments__details__section">
+      <div class="repayments__details__subsection">
+        <p class="repayments__details__section__title">Your Information</p>
+      </div>
+
+      <div class="repayments__details__subsection">
+        <p class="repayments__details__subsection__text">Name</p>
+        <p class="repayments__details__subsection__text">
+          {{ repaymentDetail.loan.firstName }}
+          {{ repaymentDetail.loan.lastName }}
+        </p>
+      </div>
+
+      <div class="repayments__details__subsection">
+        <p class="repayments__details__subsection__text">Mobile</p>
+        <p class="repayments__details__subsection__text">
+          {{ repaymentDetail.loan.mobile }}
+        </p>
+      </div>
+
+      <div class="repayments__details__subsection">
+        <p class="repayments__details__subsection__text">Email</p>
+        <p class="repayments__details__subsection__text">
+          {{ repaymentDetail.loan.email }}
+        </p>
+      </div>
+    </div>
+
+    <div class="repayments__details__section">
+      <div class="repayments__details__subsection">
+        <p class="repayments__details__section__title">Finance details</p>
+      </div>
+
+      <div class="repayments__details__finance">
+        <div class="repayments__details__finance__item">
+          <p>Establishment Fee</p>
+          <p class="repayments__details__finance__value">
+            {{ repaymentDetail.establishmentFee | currency }}
+          </p>
+        </div>
+      </div>
+
+      <div class="repayments__details__finance">
+        <div class="repayments__details__finance__item">
+          <p>Total repayment</p>
+          <p class="repayments__details__finance__value">
+            {{ repaymentDetail.totalRepayment | currency }}
+          </p>
+        </div>
+      </div>
+
+      <div class="repayments__details__finance">
+        <div class="repayments__details__finance__item">
+          <p>Total Interest</p>
+          <p class="repayments__details__finance__value">
+            {{ repaymentDetail.interest | currency }}
+          </p>
+        </div>
+      </div>
+
+      <div class="repayments__details__finance">
+        <div class="repayments__details__finance__item">
+          <p>Finance amount</p>
+          <p class="repayments__details__finance__value">
+            {{ repaymentDetail.loan.amount | currency }}
+          </p>
+        </div>
+
+        <div class="repayments__details__finance__subitem">
+          <hr class="repayments__details__finance__subitem__line" />
+          <p class="repayments__details__finance__subitem__text">
+            over {{ repaymentDetail.loan.term }} month/s
+          </p>
+        </div>
+      </div>
+
+      <div class="repayments__details__finance">
+        <div class="repayments__details__finance__item">
+          <p>Repayments from</p>
+          <p class="repayments__details__finance__value">
+            {{ repaymentDetail.amount | currency }}
+          </p>
+        </div>
+
+        <div class="repayments__details__finance__subitem">
+          <hr class="repayments__details__finance__subitem__line" />
+          <p class="repayments__details__finance__subitem__text">monthly</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

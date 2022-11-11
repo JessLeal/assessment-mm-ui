@@ -1,0 +1,21 @@
+.quote-calculator {
+  &__calculator {
+    text-align: center;
+
+    //TODO: Update layout styles
+    max-width: 40rem;
+    padding: 1rem 4rem;
+    margin: auto;
+    background-color: white;
+    border-radius: 4px;
+
+    &__button {
+      margin-top: 1.5rem;
+    }
+
+    &__text-reminder {
+      font-size: 0.75rem;
+      margin-top: 1rem;
+    }
+  }
+}

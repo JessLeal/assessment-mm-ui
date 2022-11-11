@@ -1,0 +1,55 @@
+<div [formGroup]="parentForm" class="loan-form">
+  <div class="loan-form__input-section">
+    <label class="loan-form__input-section__input-label"> Product </label>
+    <select name="product" [formControlName]="'product'">
+      <option
+        *ngFor="let productItem of productOptions"
+        [ngValue]="productItem.value"
+      >
+        {{ productItem.name }}
+      </option>
+    </select>
+  </div>
+
+  <div class="loan-form__range-container">
+    <input
+      type="range"
+      [min]="amountMin"
+      [max]="amountMax"
+      [step]="amountStep"
+      [formControlName]="'amount'"
+      class="slider"
+      id="slider"
+    />
+    <div class="range-tooltip" [style.left]="amountSliderPosition">
+      {{ parentForm.value.amount | currency }}
+    </div>
+
+    <div class="loan-form__input-section__details">
+      <p>{{ amountMin | currency }}</p>
+      <p>How much do you need?</p>
+      <p>{{ amountMax | currency }}</p>
+    </div>
+  </div>
+
+  <div class="loan-form__range-container">
+    <input
+      type="range"
+      [min]="termMin"
+      [max]="termMax"
+      [step]="termStep"
+      [formControlName]="'term'"
+      class="slider"
+      id="slider"
+    />
+    <div class="range-tooltip" [style.left]="termSliderPosition">
+      {{ parentForm.value.term }}
+      {{ parentForm.value.term === 0 ? "month" : "months" }}
+    </div>
+    <div class="loan-form__input-section__details">
+      <p>{{ termMin }} month</p>
+      <p>For how long?</p>
+      <p>{{ termMax }} months</p>
+    </div>
+  </div>
+</div>

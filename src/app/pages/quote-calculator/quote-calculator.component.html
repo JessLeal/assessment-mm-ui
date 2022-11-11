@@ -1,0 +1,23 @@
+<div class="quote-calculator">
+  <moneyme-loading *ngIf="isLoading"></moneyme-loading>
+  <div class="quote-calculator__description">
+    <div class="quote-calculator__calculator">
+      <h2 class="quote-calculator__calculator__title">Quote calculator</h2>
+      <form [formGroup]="loanForm" class="quote-calculator__calculator__form">
+        <moneyme-loan-form [parentForm]="loanForm"></moneyme-loan-form>
+        <moneyme-account-form [parentForm]="loanForm"></moneyme-account-form>
+
+        <button
+          class="btn-primary quote-calculator__calculator__button"
+          (click)="onClick()"
+        >
+          Calculate quote
+        </button>
+
+        <p class="quote-calculator__calculator__text-reminder">
+          Quote does not affect your credit score
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
